@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="TheMovie.Views.MoviesInGenrePage"
+    Title="{Binding Title}">
+
+    <ContentPage.Content>
+        <ListView x:Name="ListMoviesByGenre" Margin="20" SelectionMode="Single" ItemsSource="{Binding MoviesByGenre}" HasUnevenRows="True" ItemSelected="OnItemSelected">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <StackLayout Orientation="Horizontal" Margin="10">
+                            <Image Source="{Binding poster_path, StringFormat='{}https://image.tmdb.org/t/p/w500/{0}'}" HeightRequest="150" Aspect="AspectFit" />
+                            <StackLayout Orientation="Vertical" VerticalOptions="Center">
+                                <Label Text="{Binding title}" TextColor="Black" VerticalTextAlignment="Center" FontAttributes="Bold" FontSize="16" />
+                                <Label Text="{Binding release_date}" TextColor="Black" VerticalTextAlignment="Center" />
+                            </StackLayout>
+                        </StackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </ContentPage.Content>
+</ContentPage>
+

@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:viewmodels="clr-namespace:TheMovie.ViewModels"
+    x:Class="TheMovie.Views.GenrePage"
+    xmlns:local="clr-namespace:TheMovie.ViewModels"
+    Title="All Movie Genre"
+    >
+
+
+    <ContentPage.Content>
+        <ListView x:Name="ListViewGenre" Margin="20" SelectionMode="Single" ItemsSource="{Binding AllGenres}" ItemSelected="OnItemSelected">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <StackLayout Orientation="Horizontal" >
+                            <Label Text="{Binding name}" VerticalTextAlignment="Center" TextColor="Black"/>
+                        </StackLayout>
+                     </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </ContentPage.Content>
+</ContentPage>
+
