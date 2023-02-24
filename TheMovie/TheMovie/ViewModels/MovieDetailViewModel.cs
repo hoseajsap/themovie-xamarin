@@ -9,9 +9,9 @@ using Xamarin.Forms;
 
 namespace TheMovie.ViewModels
 {
-	public class MovieDetailViewModel
+	public class MovieDetailViewModel : INotifyPropertyChanged
 
-	{
+    {
         public event PropertyChangedEventHandler PropertyChanged;
 
         IApiService _rest = DependencyService.Get<IApiService>();
@@ -21,7 +21,7 @@ namespace TheMovie.ViewModels
         public MovieDetailViewModel(int id)
         {
             getMovieDetail(id);
-            OpenWebCommand = new Command(async () => await Browser.OpenAsync("https://aka.ms/xamarin-quickstart"));
+            OpenWebCommand = new Command(async () => await Browser.OpenAsync($"https://www.youtube.com/watch?v={MovieDetails.videos.results[0].key}"));
         }
 
         public async void getMovieDetail(int id)
