@@ -128,6 +128,34 @@ namespace TheMovie.Services
 
             return null;
         }
+
+        public async Task<AllReview> GetMovieReview(int movieId, int page)
+        {
+            var httpClientHandler = new HttpClientHandler();
+
+            httpClientHandler.ServerCertificateCustomValidationCallback =
+            (message, cert, chain, errors) => { return true; };
+
+            HttpClient client = new HttpClient(httpClientHandler);
+            List<String> parameter = new List<string>
+            {
+                $"page={page.ToString()}"
+            };
+
+            string url = Base_Url_With_Api($"/movie/{movieId}/reviews", parameter);
+
+            HttpResponseMessage responseMessage = await client.GetAsync(url);
+
+            if (responseMessage.StatusCode == System.Net.HttpStatusCode.OK)
+            {
+                var result = await responseMessage.Content.ReadAsStringAsync();
+                var json = JsonConvert.DeserializeObject<AllReview>(result);
+
+                return json;
+            }
+
+            return null;
+        }
     }
 }
 

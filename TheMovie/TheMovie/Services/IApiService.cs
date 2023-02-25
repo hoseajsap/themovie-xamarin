@@ -11,6 +11,7 @@ namespace TheMovie.Services
         Task<AllGenre> getAllGenre();
         Task<ResultDiscoverMovie> getDiscoverByGenre(int id, int page);
         Task<MovieDetail> GetMovieDetail(int movieId);
+        Task<AllReview> GetMovieReview(int movieId, int page);
     }
 }
 

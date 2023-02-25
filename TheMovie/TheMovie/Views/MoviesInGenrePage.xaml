@@ -6,7 +6,7 @@
     Title="{Binding Title}">
 
     <ContentPage.Content>
-        <ListView x:Name="ListMoviesByGenre" Margin="20" SelectionMode="Single" ItemsSource="{Binding MoviesByGenre}" HasUnevenRows="True" ItemSelected="OnItemSelected">
+        <ListView x:Name="ListMoviesByGenre" Margin="20" SelectionMode="Single" ItemsSource="{Binding MoviesByGenre}" ItemAppearing="OnListViewItemAppearing" HasUnevenRows="True" ItemSelected="OnItemSelected">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell>
